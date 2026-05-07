@@ -1,0 +1,5 @@
+{
+  "name": "Library Management System",
+  "description": "A comprehensive digital library management system to handle books, students, and book issuance.",
+  "requestFramePermissions": []
+}

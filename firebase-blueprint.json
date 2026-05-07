@@ -1,0 +1,61 @@
+{
+  "entities": {
+    "Admin": {
+      "title": "Admin",
+      "description": "Administrator account",
+      "type": "object",
+      "properties": {
+        "admin_id": { "type": "string" },
+        "username": { "type": "string" },
+        "password": { "type": "string" }
+      },
+      "required": ["username", "password"]
+    },
+    "Book": {
+      "title": "Book",
+      "description": "Library book",
+      "type": "object",
+      "properties": {
+        "book_id": { "type": "string" },
+        "title": { "type": "string" },
+        "author": { "type": "string" },
+        "category": { "type": "string" },
+        "quantity": { "type": "number" },
+        "isbn": { "type": "string" }
+      },
+      "required": ["title", "author", "quantity"]
+    },
+    "Student": {
+      "title": "Student",
+      "description": "Library student",
+      "type": "object",
+      "properties": {
+        "student_id": { "type": "string" },
+        "name": { "type": "string" },
+        "department": { "type": "string" },
+        "phone": { "type": "string" }
+      },
+      "required": ["name", "student_id"]
+    },
+    "Issue": {
+      "title": "Issue",
+      "description": "Book issue record",
+      "type": "object",
+      "properties": {
+        "issue_id": { "type": "string" },
+        "student_id": { "type": "string" },
+        "book_id": { "type": "string" },
+        "issue_date": { "type": "string", "format": "date-time" },
+        "return_date": { "type": "string", "format": "date-time" },
+        "fine": { "type": "number" }
+      },
+      "required": ["student_id", "book_id", "issue_date"]
+    }
+  },
+  "firestore": {
+    "/admins/{admin_id}": { "schema": "Admin", "description": "Admin accounts" },
+    "/books/{book_id}": { "schema": "Book", "description": "Books collection" },
+    "/students/{student_id}": { "schema": "Student", "description": "Students collection" },
+    "/issue_books/{issue_id}": { "schema": "Issue", "description": "Issued books records" }
+  }
+}
